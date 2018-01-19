@@ -28,7 +28,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private int visibleThreshold = 10;
 
-    int lasttVisibleItem, visibleItemCount, totalItemCount;
+    private int lasttVisibleItem, totalItemCount;
 
     private LinearLayoutManager linearLayoutManager;
 
@@ -70,7 +70,6 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                visibleItemCount = recyclerView.getChildCount();
                 totalItemCount = getLinearLayoutManager().getItemCount();
                 lasttVisibleItem = getLinearLayoutManager().findLastVisibleItemPosition();
                 if (!isMoreLoading && totalItemCount <= (lasttVisibleItem + visibleThreshold)) {
