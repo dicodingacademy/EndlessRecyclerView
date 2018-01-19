@@ -123,12 +123,11 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
 
     public void setLoadmoreProgress(final boolean isProgress) {
+        isMoreLoading = isProgress;
         if (isProgress) {
             getItems().add(getItems().size(), null);
-            isMoreLoading = true;
             notifyDataSetChanged();
         } else {
-            isMoreLoading = false;
             if (getItems().size() > 0){
                 getItems().remove(getItems().size() - 1);
                 notifyDataSetChanged();
